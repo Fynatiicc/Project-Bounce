@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://07j7mrpo1tmq"]
+
+[ext_resource type="PackedScene" uid="uid://bx7hq3x88qj1h" path="res://player.tscn" id="1_fj7yv"]
+[ext_resource type="Texture2D" uid="uid://b4168aeothqe2" path="res://icon.svg" id="2_tlwt5"]
+
+[sub_resource type="GDScript" id="GDScript_qwqyf"]
+script/source = "extends StaticBody2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62yky"]
+size = Vector2(1152, 118)
+
+[node name="Node2D" type="Node2D" unique_id=1291721969]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=177204783]
+modulate = Color(0.59630555, 0.69947726, 0.33377993, 1)
+self_modulate = Color(5.15783, 8.341237, 0, 1)
+offset_right = 1152.0
+offset_bottom = 657.0
+texture = ExtResource("2_tlwt5")
+stretch_mode = 1
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=2090092500]
+position = Vector2(59, 620)
+script = SubResource("GDScript_qwqyf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground" unique_id=1085961747]
+modulate = Color(18.892157, 18.892157, 18.892157, 1)
+position = Vector2(514.5, 0)
+scale = Vector2(9.0390625, 1)
+texture = ExtResource("2_tlwt5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1259373705]
+position = Vector2(515, 0)
+shape = SubResource("RectangleShape2D_62yky")
+
+[node name="Player" parent="." unique_id=1777251231 instance=ExtResource("1_fj7yv")]
+position = Vector2(134, 144)
